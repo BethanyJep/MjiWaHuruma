@@ -20,7 +20,7 @@ export async function main() {
         body: {
             messages: [
                 { role: "system", content: "" },
-                { role: "user", content: "Can you explain the basics of machine learning?" }
+                { role: "user", content: "what is AI?" }
             ],
             model: "gpt-4o",
             temperature: 1,
@@ -38,3 +38,4 @@ export async function main() {
 main().catch((err) => {
     console.error("The sample encountered an error:", err);
 });
+

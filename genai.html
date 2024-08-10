@@ -9,9 +9,13 @@
 <body>
 <script src="genai.js" ></script>
 <div class="genai">
-    <input type="text" placeholder="Ask a question....." id="userInput">
-    <button id="submitButton" >Ask AI your Question</button>
-    <div id="response"><p></p></div>
+    <form action="" method="post">
+        <input type="text" placeholder="Ask a question....." id="userInput">
+        <button id="submitButton" onclick="getResponse()" >Ask AI your Question</button>
+        <div id="response" ><p></p></div>
+    </form>
+
+    
 </div>
 </body>
 </html>

@@ -10,21 +10,24 @@ import { AzureKeyCredential } from "@azure/core-auth";
 // Create your PAT token by following instructions here: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens
 const token = process.env["GITHUB_TOKEN"];
 
-export async function main() {
+async function getResponse() {
     const client = new ModelClient(
         "https://models.inference.ai.azure.com",
         new AzureKeyCredential(token)
     );
 
+    const userInput = document.getElementById("userInput").value;
+    const genaiResponse = document.getElementById("response");
+
     const response = await client.path("/chat/completions").post({
         body: {
             messages: [
                 { role: "system", content: "" },
-                { role: "user", content: "what is AI?" }
+                { role: "user", content: userInput }
             ],
             model: "gpt-4o",
             temperature: 1,
-            max_tokens: 4096,
+            max_tokens: 406,
             top_p: 1
         }
     });
@@ -32,10 +35,11 @@ export async function main() {
     if (response.status !== "200") {
         throw response.body.error;
     }
-    console.log(response.body.choices[0].message.content);
+    const aiResponse = response.body.choices[0].message.content
+    genaiResponse.innerHTML = aiResponse;
 }
 
-main().catch((err) => {
+getResponse().catch((err) => {
     console.error("The sample encountered an error:", err);
 });
 

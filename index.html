@@ -3,37 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>mji wa huruma</title>
+    <title>Mji wa Huruma</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="menu">
       <ul>
-        <li><a href="/">home</a></li>
-        <li><a href="#about">about us</a></li>
-        <li>donate</li>
-        <li><a href="#contactus">contact us</a></li>
-        <li><a href="genai.html">GenAI</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li>Donate</li>
+        <li><a href="#contactus">Contact Us</a></li>
       </ul>
     </div>
 
-    <!-- landing page -->
+    <!-- Landing Page -->
     <div class="landing-page">
       <div class="website-description">
-        <h1>welcome to mji wa huruma the heartbeat of karura forest</h1>
-        <p>located in westlands,nairobi</p>
-        <button>
-          <a href="https://huruma.kwikk.info/history.htm">mjiwahuruma</a>
-        </button>
+        <h1>Welcome to Mji wa Huruma</h1>
+        <p id="location">Fetching weather data...</p>
+        <button><a href="https://huruma.kwikk.info/history.htm">Mji wa Huruma</a></button>
       </div>
-      <br />
       <div class="hero-image">
-        <img src="/mjiwahuruma.jpeg" alt="" srcset="" />
+        <img src="mjiwahuruma.jpg" alt="Mji wa Huruma" />
       </div>
     </div>
-    <!-- end of landing page -->
 
-    <!-- about section -->
+    <!-- About Section -->
     <div id="about">
       <h1>About Us</h1>
       <div class="table-responsive">
@@ -52,55 +47,43 @@
               <td>Learning on-demand 21st-century skills</td>
             </tr>
             <tr>
-              <td><img src="/mjiwahuruma.jpeg" alt="" class="table-img" /></td>
-              <td><img src="/mjiwahuruma.jpeg" alt="" class="table-img" /></td>
-              <td><img src="/mjiwahuruma.jpeg" alt="" class="table-img" /></td>
+              <td><img src="mjiwahuruma.jpg" alt="Entrepreneurship" class="table-img" /></td>
+              <td><img src="mjiwahuruma.jpg" alt="Leadership" class="table-img" /></td>
+              <td><img src="mjiwahuruma.jpg" alt="ICT" class="table-img" /></td>
             </tr>
           </tbody>
         </table>
       </div>
     </div>
-    <!-- end of about section -->
-    <h1 style="text-align: center;">Be part of the Community</h1>
-    <!-- start of form -->
+
+    <!-- Form Section -->
     <form action="/submit" method="POST">
-      <h2>Form</h2>
-      <label for="first-name">Enter your first name</label><br />
-      <input
-        type="text"
-        placeholder="first name"
-        id="first-name"
-        required
-      /><br />
-      <label for="last-name"> Enter your last name</label><br />
-      <input
-        type="text"
-        placeholder="last name"
-        id="last-name"
-        required
-      /><br />
-      <label for="email">Enter your email</label><br />
-      <input type="email" placeholder="email" id="email" required /><br />
+      <h2>Contact Form</h2>
+      <label for="first-name">First Name</label><br />
+      <input type="text" id="first-name" required /><br />
+      <label for="last-name">Last Name</label><br />
+      <input type="text" id="last-name" required /><br />
+      <label for="email">Email</label><br />
+      <input type="email" id="email" required /><br />
       <div class="gender">
         <div class="gender-type">
-          <label for="female"> Female</label>
+          <label for="female">Female</label>
           <input type="radio" id="female" name="gender" />
         </div>
         <div class="gender-type">
-          <label for="male"> Male</label>
+          <label for="male">Male</label>
           <input type="radio" id="male" name="gender" />
         </div>
       </div>
-      <button type="submit">submit</button>
+      <button type="submit">Submit</button>
     </form>
-    <!-- end of form -->
 
+    <!-- Footer -->
     <footer>
-      <h2 id="contactus">contact us</h2>
-      <p>
-        you can reach us through <span>0700000000</span> for any questions or
-        donation
-      </p>
+      <h2 id="contactus">Contact Us</h2>
+      <p>You can reach us through <span>0700000000</span> for any questions or donations.</p>
     </footer>
+
+    <script src="app.js"></script>
   </body>
 </html>

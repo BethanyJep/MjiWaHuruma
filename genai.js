@@ -10,20 +10,23 @@ import { AzureKeyCredential } from "@azure/core-auth";
 // Create your PAT token by following instructions here: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens
 const token = process.env["GITHUB_TOKEN"];
 
-async function getResponse() {
-    const client = new ModelClient(
-        "https://models.inference.ai.azure.com",
-        new AzureKeyCredential(token)
-    );
+const client = new ModelClient(
+    "https://models.inference.ai.azure.com",
+    new AzureKeyCredential(token)
+);
 
+async function getInput() {
     const userInput = document.getElementById("userInput").value;
-    const genaiResponse = document.getElementById("response");
+    return userInput
+}
 
+async function getAIResponse(userInput){
+    const getuserInput = await getInput();
     const response = await client.path("/chat/completions").post({
         body: {
             messages: [
                 { role: "system", content: "" },
-                { role: "user", content: userInput }
+                { role: "user", content: getuserInput }
             ],
             model: "gpt-4o",
             temperature: 1,
@@ -32,14 +35,14 @@ async function getResponse() {
         }
     });
 
-    if (response.status !== "200") {
-        throw response.body.error;
-    }
-    const aiResponse = response.body.choices[0].message.content
-    genaiResponse.innerHTML = aiResponse;
+    const GenAIResponse = response.body.choices[0].message.content
+    return GenAIResponse
 }
 
-getResponse().catch((err) => {
-    console.error("The sample encountered an error:", err);
-});
+async function getResponse(newGenAIResponse) {
+    const genaiResponse = document.getElementById("response");
+    const newGenAIResponse = await getAIResponse();
+    genaiResponse.innerHTML = newGenAIResponse;
+}
 
+console.log("response:", GenAIResponse, "newGenAIResponse:", newGenAIResponse);
